@@ -1,0 +1,28 @@
+* {
+    background: whitesmoke;
+}
+
+h1, p {
+    color: gold;
+}
+
+body {
+    color:black;
+}
+
+#lunch {
+    color: red
+}
+
+.text-center {
+    text-align: center
+}
+
+#dinner {
+    color: white;
+    background: black;
+}
+
+.container {
+    background: blueviolet
+}
