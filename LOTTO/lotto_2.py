@@ -105,7 +105,7 @@ req = requests.get(url)
 lotto = req.json()
 
 for i in range(1, 7):
-    win_nums.add(lotto["drwtNo"+str(i)])
+    win_nums.add(lotto["drwtNo" + str(i)])
 
 while True:
     count_i_try += 1
@@ -116,10 +116,10 @@ while True:
         break
     elif checklen == 1:
         if lotto["bnusNo"] in my_num:
-            print(str(count_i_try) + "번만큼 시도하여 2등이 되었습니다.")
+            print(str(format(count_i_try, ",")) + "번만큼 시도하여 2등이 되었습니다.")
         else:
-            print(str(count_i_try) + "번만큼 시도하여 3등이 되었습니다.")
+            print(str(format(count_i_try, ",")) + "번만큼 시도하여 3등이 되었습니다.")
     # elif checklen == 2:
     #     print(str(count_i_try) + "번만큼 시도하여 4등이 되었습니다.")
 
-print(str(count_i_try) + "번만큼 시도하여 1등이 되었습니다.")
+print(str(format(count_i_try, ",")) + "번만큼 시도하여 1등이 되었습니다.")
