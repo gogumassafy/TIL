@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
    <body>
-      {% if word in dictionary_book.keys() %}
-         <h1>{{ word }}(은)는 {{ dictionary_book[word] }}</h1>
+      {% if word in dictionary_book %}
+         <h1> {{ word }}(은)는 {{ dictionary_book[word] }} </h1>
       {% else %}
-         <h3>{{ word }}(은)는 없는 단어입니다.</h3>
-      {% end if %}
+         <h3> {{ word }}(은)는 없는 단어입니다. </h3>
+      {% endif %}
    </body>
 </html>
