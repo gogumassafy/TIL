@@ -11,4 +11,5 @@ for tc in range(10):
         max_height = max(left, right)
         if data[i] > max_height:
             count += (data[i] - max_height)
+
     print(f"#{tc + 1} {count}")
