@@ -17,10 +17,6 @@ for tc in range(T):
         tower_index[1] = [i for i in range(len(tower)) if tower[i] < tower_height[0]]
         tower_height[1] = tower_height[tower_index[1]]
 
-            if tower[i] < tower_height[1]:  # min
-                tower_height[1] = tower[i]
-                tower_index[1] = i
-
         tower[tower_index[0]] -= 1
         tower[tower_index[1]] += 1
 
