@@ -1,0 +1,61 @@
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: darkgray;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+/* 전체 사이즈의 변화가 없게 만들어 준다. */
+.border-box {
+    box-sizing: border-box;
+}
+
+/* 4개 다 적을시 top right bottom left
+   3개만 적을시에 top right,left bottom
+   2개만 적을시는 top,bottom right,left
+   1개만 적을시는 top, right, left, bottom */
+/* margin-left: auto; 왼쪽에 빈 칸 몰빵, 오른쪽 정렬
+    margin: auto 오른쪽 왼쪽 반반 나눠준다. */
+.margin-50 {
+    margin: 50px;
+}
+
+.margin-top-100 {
+    margin-top: 100px;
+}
+
+.margin-3 {
+    margin: 10px 20px 30px;
+}
+
+/* 1. 한방에 border 옵션 다 넣거나 아니면 하나씩 넣거나 */
+.border {
+    border: 1px black dashed;
+    /* border-style: dashed;
+    border-bottom-style: double;
+    border-top-style: solid;
+    border-left-style: inset;
+    border-bottom-color: aqua; */
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    background-color: darkgoldenrod;
+    border-radius: 50%;
+}
+
+.rugby {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border-top-right-radius: 80%;
+    border-top-left-radius: 20%;
+    border-bottom-left-radius: 80%;
+    border-bottom-right-radius: 20%;
+    /* border-radius: 10% 75%; 이거도 위에랑 같음 */
+    opacity: 0.5; /* 0은 투명 1은 불투명 */
+}

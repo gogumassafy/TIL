@@ -1,0 +1,51 @@
+.square {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: darkgray;
+}
+
+.relative-box {
+    position: relative;
+    background-color: navy;
+    top: 10px;
+    left: 10px;
+}
+
+.absolute-box {
+    position: absolute;
+    background-color: chocolate;
+    top: 30px;
+    left: 30px;
+}
+
+.fixed {
+    position: fixed;
+    background-color: coral;
+    bottom: 0px;
+    left: 0px;
+    height: 20px;
+}
+
+/* z-index는 값이 작을수록 큰 값보다 뒤로 가게된다.
+    z-index는 부모의 숫자를 따라감. 자식이 99라도 부모가 1이면 소용없어~ */
+.z-index-1 {
+    background-color: brown;
+    top: 300px;
+    left: 300px;
+    z-index: 5;
+}
+
+.z-index-2 {
+    background-color: gold;
+    top: 350px;
+    left: 350px;
+    z-index: 4;
+}
+
+.z-index-3 {
+    background-color: pink;
+    top: 400px;
+    left: 400px;
+    z-index: 3;
+}

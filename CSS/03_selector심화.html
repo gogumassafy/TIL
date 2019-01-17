@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="03.css">
+</head>
+<body>
+    <!-- 그룹 선택자 -->
+    <p>그룹 선택자 적용</p>
+    <h3>그룹 선택자 적용</h3>
+    <p class="black_bg">그룹</p>
+    <p class="white">그룹</p>
+    <hr>
+
+    <!-- 인접선택자, 형제 선택자 -->
+    <div class="red"></div>
+    <div class="blue"></div>
+    <div></div>
+    <hr>
+
+    <h1>H1</h1>
+    <p>h1의 형제 p</p>
+    <p>나도 형제? 아니네</p>
+    <hr>
+
+    <!-- 자식 선택자 -->
+    <ol>
+        <li>ol태그의 자식 li</li>
+    </ol>
+
+    <!-- emmet cheat sheet 검색해보기, https://docs.emmet.io/cheat-sheet/
+    div.container>.row>ul>li*10>a -->
+    <ol id="chocolate">
+        <li>허쉬</li>
+        <li>드림카카오</li>
+        <li>드림카카오</li>
+        <li>쿠앤크</li>
+    </ol>
+
+    <div id="chocolate">
+        <ul>
+            <li>화이트초코</li>
+            <li>초코초코</li>
+        </ul>
+    </div>
+
+    <!-- 자손 선택자 -->
+    <ul>
+        <div>
+            <li>자식1</li>
+            <li>자식2</li>
+            <li>자식3</li>
+        </div>
+    </ul>
+</body>
+</html>
