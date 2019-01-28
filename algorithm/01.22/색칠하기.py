@@ -15,10 +15,6 @@ for tc in range(test_num):
                     original_map[row][col] += color
                     if original_map[row][col] == 3:
                         count += 1
-    # count = 0
-    # for i in range(10):
-    #     for j in range(10):
-    #         count += original_map[i][j]
     print(f"#{tc + 1} {count}")
 
 
