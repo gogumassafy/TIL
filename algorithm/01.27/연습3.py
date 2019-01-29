@@ -15,13 +15,27 @@ def bruteForce2(text, pattern):
     while j < M and i < N:
         if text[i] != pattern[j]:
             i -= j
-            j -= 1
+            j = -1
         i += 1
         j += 1
     if j == M:
         return i - M
     else:
         return -1
+
+# def bruteForce2(text, pattern):
+#     i, j =0, 0
+#     while j < len(pattern) and i < len(text):
+#         if text[i] != pattern[j]:
+#             i = i - j
+#             j = -1
+#         i += 1
+#         j += 1
+#     if j == len(pattern):
+#         return i - len(pattern)
+#     else:
+#         return -1
+
 
 text = "This thii a book!~"
 pattern = "Thii"
