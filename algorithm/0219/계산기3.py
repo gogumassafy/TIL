@@ -6,10 +6,11 @@ for tc in range(10):
     input_string = input()
     string_stack = []
     operator_stack = []
-    operator = {"+": 1,
+    operator = {"(": 0,
+                "+": 1,
                 "*": 2}
     parentheses = "()"
-    result = 0
+    result = []
 
     for i in input_string:
         if i not in operator and i not in parentheses:
@@ -18,16 +19,36 @@ for tc in range(10):
             operator_stack.append(i)
         elif i == ")":
             while operator_stack[-1] != "(":
-                string_stack.append(operator_stack.pop())
+                if operator_stack[-1] == "+":
+                    operator_stack.pop()
+                    string_stack.append(int(string_stack.pop()) + int(string_stack.pop()))
+                elif operator_stack[-1] == "*":
+                    operator_stack.pop()
+                    string_stack.append(int(string_stack.pop()) * int(string_stack.pop()))
             operator_stack.pop()
         else:
-            while len(operator_stack) >= 1:
-                if len(operator_stack) == 0 or operator_stack[-1] == "(":
-                    break
-            operator_stack.append(i)
+            if len(operator_stack) >= 1:
+                if operator[i] > operator[operator_stack[-1]]:
+                    operator_stack.append(i)
+                else:
+                    while operator_stack and operator[operator_stack[-1]] >= operator[i]:
+                        if operator_stack[-1] == "+":
+                            operator_stack.pop()
+                            string_stack.append(int(string_stack.pop()) + int(string_stack.pop()))
+                        elif operator_stack[-1] == "*":
+                            operator_stack.pop()
+                            string_stack.append(int(string_stack.pop()) * int(string_stack.pop()))
+                    operator_stack.append(i)
+            else:
+                operator_stack.append(i)
 
     for i in range(len(operator_stack)):
-        string_stack.append(operator_stack.pop())
+        if operator_stack[-1] == "+":
+            operator_stack.pop()
+            string_stack.append(int(string_stack.pop()) + int(string_stack.pop()))
+        elif operator_stack[-1] == "*":
+            operator_stack.pop()
+            string_stack.append(int(string_stack.pop()) * int(string_stack.pop()))
 
-    print(f'#{tc+1} {string_stack}')
+    print(f'#{tc+1} {string_stack[0]}')
 
