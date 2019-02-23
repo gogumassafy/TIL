@@ -15,7 +15,7 @@
 <body>
     <h1 id="edu">프로그래밍 교육</h1>
     <a href="#python">
-        <img src="images/python.png" alt="python">
+        <img src="./images/python.png" alt="python">
     </a>
     <a href="reference.html">참고사이트</a>
     <hr>
@@ -61,16 +61,22 @@
                 </section>
 
                 <section>
+                    <!-- table은 table로 묶임 -->
                     <table>
-                        <tr>
+                        <!-- tr은 행을 만드는 용도 -->
+                        <tr> 
+                            <!-- th는 table head의 약자. 굵은 글씨, 중앙 정렬이 기본. -->
                             <th></th>
                             <th>월</th>
                             <th>화</th>
                             <th>수</th>
                         </tr>
                         <tr>
+                            <!-- td는 table data의 약자로 셀을 만드는 역할, 보통 글씨에 왼쪽 정렬 -->
                             <td>A코스</td>
+                            <!-- colspan 열을 해당 칸만큼 차지 -->
                             <td colspan="2">짬뽕</td>
+                            <!-- 행을 해당 칸 만큼 차지 -->
                             <td rowspan="2">초밥</td>
                         </tr>
                         <tr>
@@ -132,7 +138,7 @@
                         <input type="checkbox" name="option" value="1">sia<br>
                         <input type="checkbox" name="option" value="2">Queen<br>
                         <input type="checkbox" name="option" value="3">imagine dragon<br>
-
+                        
                         <input type="number" name="size" min="10" max="60" step="10" value="15"><br>
 
                         <select name="country">
