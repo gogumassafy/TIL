@@ -3,7 +3,7 @@
 import sys
 sys.stdin = open("행렬찾기.txt")
 
-def countRow(i, j, col_cnt):
+def countRow(i, j, col_cnt): #0, 3, 4
     global N
     row_cnt = 0
 
@@ -13,7 +13,7 @@ def countRow(i, j, col_cnt):
             break
 
     for row in range(i, i+row_cnt):
-        for col in range(j-col_cnt+1, j+1):
+        for col in range(col_cnt-j-1, j+1):
             input_list[row][col] = 0
     return row_cnt
 
@@ -36,20 +36,17 @@ for tc in range(T):
                     row_cnt = countRow(i, j, col_cnt)
                     matrix.append([row_cnt, col_cnt])
                     cnt += 1
-                    row_cnt = 0
-                    col_cnt = 0
+                    row_cnt = col_cnt = 0
 
+
+    min_num = float("inf")
     min_index = 0
-    for i in range(cnt-1):
-        min_index = i
-        for j in range(i+1, cnt):
-            if matrix[j][0] * matrix[j][1] < matrix[min_index][0] * matrix[min_index][1]:
+    for i in range(i, cnt):
+        for j in range(i, cnt):
+            if matrix[j][0] * matrix[j][1] < min_num:
+                min_num = matrix[j][0] * matrix[j][1]
                 min_index = j
+        min_index = float("inf")
         matrix[i], matrix[min_index] = matrix[min_index], matrix[i]
 
-    print(f'#{tc+1} {cnt}', end=" ")
-
-    for i in range(cnt):
-        for j in range(2):
-            print(matrix[i][j], end=" ")
-    print()
+    print(f'#{tc+1} {cnt} {matrix}')
