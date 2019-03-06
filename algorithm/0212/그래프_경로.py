@@ -4,7 +4,6 @@ T = int(input())
 
 def DFS(start):
     visit[start] = 1
-
     if start in node_dict:
         for i in node_dict[start]:
             if visit[i] == 0:
