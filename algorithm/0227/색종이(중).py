@@ -4,6 +4,7 @@ def isWall(i, j):
     else:
         return False
 
+
 N = int(input())
 input_list = [[0]*100 for _ in range(100)]
 cnt = 0
