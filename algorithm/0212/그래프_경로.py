@@ -9,14 +9,15 @@ def DFS(start):
             if visit[i] == 0:
                 DFS(i)
 
+
 for tc in range(T):
     V, E = map(int, input().split())
     node_dict = {}
     visit = [0 for _ in range(V+1)]
 
     for _ in range(E):
-        k,v = map(int, input().split())
-        if not k in node_dict:
+        k, v = map(int, input().split())
+        if k not in node_dict:
             node_dict[k] = []
         node_dict[k] += [v]
     S, G = map(int, input().split())
