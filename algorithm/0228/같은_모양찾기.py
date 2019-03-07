@@ -12,9 +12,10 @@ M = int(input())
 pattern = [list(map(int, input())) for _ in range(M)]
 cnt = 0
 
-for i in range(N-M+1):
-    for j in range(N-M+1):
-        for k in range(4):
-            pattern = list(zip(*pattern[::-1]))
-            cnt += matching(i, j, M)
-print(cnt)
+# for i in range(N-M+1):
+#     for j in range(N-M+1):
+#         for k in range(4):
+#             pattern = list(zip(*pattern[::-1]))
+#             cnt += matching(i, j, M)
+print(list(zip(*pattern)))
+print(pattern)
