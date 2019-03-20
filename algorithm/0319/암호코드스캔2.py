@@ -2,18 +2,18 @@ import sys
 sys.stdin = open('암호코드스캔.txt')
 
 
-def check(string):
-    first = string.index(1)
+def check(r):
+    first = raw[r].index(1)
     first_num = 1
     row_idx = 0
     col_idx = 0
     cnt = 0
     quotient = 0
-    for i in range(first, len(string)):
+    for i in range(first, len(raw[r])):
         if row_idx == 7 and col_idx == 3:
             num_count[row_idx][col_idx] = 7 * quotient - sum(num_count[row_idx])
             break
-        if first_num == string[i]:
+        if first_num == raw[r][i]:
             cnt += 1
         else:
             num_count[row_idx][col_idx] = cnt
@@ -31,19 +31,18 @@ def check(string):
                 row_idx += 1
                 col_idx = 0
                 first_num = 1
-    # print(num_count)
-    # print(length)
 
-    sum_row = 0
+    col = 0
     for i in range(len(num_count)):
-        sum_row += sum(num_count[i])
+        col += sum(num_count[i])
+    row = countrow(r, first)
+    clear(r, first, row, col)
+
     if quotient:
         for i in range(len(num_count)):
             for j in range(4):
                 num_count[i][j] //= quotient
-    # print(num_count)
-    # print(sum_row, quotient)
-    # print()
+
     for i in range(len(num_count)):
         for j in range(len(pwd)):
             if num_count[i] == pwd[j]:
@@ -51,42 +50,6 @@ def check(string):
                 break
         else:
             num_count[i] = -float('inf')
-
-    return sum_row // 4
-
-
-def makeBinary(r):
-    temp = []
-    for i in range(M):
-        if raw[r][i].isalpha():
-            idx = ord(raw[r][i]) - ord('A') + 10
-        else:
-            idx = int(raw[r][i])
-        temp += num[idx]
-
-    return temp
-
-
-# def makeBinary(r):
-#     temp = []
-#     for i in range(M):
-#         if raw[r][i].isalpha():
-#             idx = ord(raw[r][i]) - ord('A') + 10
-#         else:
-#             idx = int(raw[r][i])
-#         temp += num[idx]
-#
-#     length = check(temp)
-#
-#     sum_num = sum(num_count)
-#     for i in range(len(num_count)):
-#         if i % 2:
-#             sum_num += num_count[i] * 2
-#     # print(num_count)
-#     # print(sum_num)
-#     # print(sum(num_count))
-#     # print()
-#     return 0 if sum_num % 10 else sum(num_count), length
 
 
 def countrow(r, c):
@@ -160,15 +123,15 @@ for tc in range(1, T + 1):
                 idx = int(raw[i][j])
             temp += num[idx]
         raw[i] = temp
+    for i in range(len(raw)):
+        num_count = [[0] * 4 for _ in range(8)]
+        col = check(i)
 
-    for i in range(1, N):
-        for j in range(M):
-            if raw[i][j] != '0' and raw[i-1][j] == '0' and raw[i][j-1] == '0':
-                num_count = [[0] * 4 for _ in range(8)]
-                each, col = makeBinary(i)
-                row = countrow(i, j)
-                clear(i, j, row, col)
-                sum_nums += each
+
+
+
+
+
     print('#{} {}'.format(tc, sum_nums))
 
 #1 38
