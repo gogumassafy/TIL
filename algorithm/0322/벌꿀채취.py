@@ -1,5 +1,14 @@
-import sys
+import sys, itertools
 sys.stdin = open('벌꿀채취.txt')
+
+
+def price_calc(temp, col, num_sum, value):
+    global C, N
+    if num_sum > C:
+        return 0
+    if col == len(temp):
+        return value
+    return max(price_calc(temp, col + 1, num_sum + temp[col], value + temp[col]**2), price_calc(temp, col + 1, num_sum, value))
 
 
 def bruteforce(num, value):
@@ -11,34 +20,20 @@ def bruteforce(num, value):
         for j in range(N - M + 1):
             if sum(visited[i][j:j + M]):
                 continue
-            sum_num = 0
-            sol = 0
             temp = raw[i][j:j + M]
-            # C에 따라서 어느 벌꿀통을 채취할 것인지가 중요한 이슈다.
-
-
-
-
-
-
-            max_temp = 0
-            for first in range(len(temp)):
-                first_num = temp[first]
-                if first_num <= C:
-                    sum_num += first_num
-                    sol = first_num ** 2
-                for second in range(first + 1, len(temp)):
-                    second_num = temp[second]
-                    if sum_num + second_num <= C:
-                        sum_num += second_num
-                        sol += second_num ** 2
-                    max_temp = max(max_temp, sol)
-
-
-
-
-            visited[i][j:j + M] = [1]*M
-            bruteforce(num + 1, value + sol)
+            max_temp = price_calc(temp, 0, 0, 0)
+            # max_temp = 0
+            # for k in range(1, len(temp) + 1):
+            #     combinations = itertools.combinations(temp, k)
+            #     for combination in combinations:
+            #         sol = 0
+            #         c_sum = sum(combination)
+            #         if c_sum <= C:
+            #             for v in combination:
+            #                 sol += v**2
+            #         max_temp = max(max_temp, sol)
+            visited[i][j:j + M] = [1] * M
+            bruteforce(num + 1, value + max_temp)
             visited[i][j:j + M] = [0] * M
 
 
