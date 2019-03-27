@@ -1,4 +1,4 @@
-import sys, itertools
+import sys
 sys.stdin = open('벌꿀채취.txt')
 
 
