@@ -4,6 +4,7 @@ sys.stdin = open('test_input.txt')
 
 start_time = time.time()
 
+
 def perm(n, k, length):
     global result
     if length >= result:
