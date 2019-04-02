@@ -24,7 +24,7 @@ def dfs(stack):
 
 def cpy(depth):
     for i in range(H):
-        if depth == 1:
+        if depth == 0:
             data[0][i] = raw[i][:]
         else:
             data[depth][i] = data[depth - 1][i][:]
@@ -38,7 +38,6 @@ def start(depth, total):
         return
     for col in range(W):
         cpy(depth)
-        cnt = 0
         for row in range(H):
             if data[depth][row][col]:
                 stack.append((depth, row, col))
