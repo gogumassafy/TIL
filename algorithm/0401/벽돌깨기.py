@@ -8,8 +8,9 @@ def dfs(stack):
     while stack:
         d, r, c = stack.pop()
         size = data[d][r][c]
+        if data[d][r][c]:
+            cnt += 1
         data[d][r][c] = 0
-        cnt += 1
         for dis in range(1, size):
             for i in range(4):
                 nr = r + dr[i]*dis
@@ -21,7 +22,7 @@ def dfs(stack):
                 stack.append((d, nr, nc))
     return cnt
 
-
+# 문제 없음
 def cpy(depth):
     for i in range(H):
         if depth == 0:
@@ -31,9 +32,9 @@ def cpy(depth):
 
 
 def start(depth, total):
-    global N, W, H, result
+    global N, W, H, result, count
     stack = []
-    if depth == N:
+    if depth == N or total == count:
         result = max(result, total)
         return
     for col in range(W):
@@ -57,8 +58,7 @@ def gravity(depth):
                 for row2 in range(row - 1, -1, -1):
                     if data[depth][row2][col]:
                         data[depth][row][col], data[depth][row2][col] = data[depth][row2][col], data[depth][row][col]
-            else:
-                continue
+                        break
 
 
 T = int(input())
@@ -74,3 +74,10 @@ for tc in range(1, T + 1):
     result = 0
     start(0, 0)
     print('#{} {}'.format(tc, count - result))
+
+    # 1 12
+    # 2 27
+    # 3 4
+    # 4 8
+    # 5 0
+
