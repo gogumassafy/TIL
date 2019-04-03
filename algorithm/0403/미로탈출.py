@@ -21,10 +21,11 @@ def bfs():
                 continue
             if raw[nr][nc] == 1:
                 continue
-            elif raw[nr][nc] == 2 and b > 0:
-                nb = b - 1
-                visited[nb][nr][nc] = visited[b][r][c] + 1
-                q.append((nb, nr, nc))
+            elif raw[nr][nc] == 2:
+                if b > 0:
+                    nb = b - 1
+                    visited[nb][nr][nc] = visited[b][r][c] + 1
+                    q.append((nb, nr, nc))
             else:
                 visited[b][nr][nc] = visited[b][r][c] + 1
                 q.append((b, nr, nc))
