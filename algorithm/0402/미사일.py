@@ -25,13 +25,11 @@ def boom(depth):
             temp[depth][i][0] -= power
             if temp[depth][i][0] <= 0:
                 count += 1
-            # stack.append([temp[depth][i][0], temp[depth][i][1], temp[depth][i][2]])
     return count
 
 
 def start(depth, total):
     global M, power, result
-    cnt = 0
     if depth == M:
         result = max(result, total)
         return
