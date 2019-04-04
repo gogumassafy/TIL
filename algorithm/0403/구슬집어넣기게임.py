@@ -12,15 +12,18 @@ dc = [0, 0, -1, 1]
 
 # 비지티드 체크 안함. 어차피 10까지임. 파란 구슬 때문에 전략적으로 돌아가는 경우도 필요.
 def bfs():
+    global q
     time = 0
     while q:
         size = len(q)
+        front = 0
         if time > 10:
             return -1
         for _ in range(size):
-            pair = q.popleft()
-            rr, rc = pair[0][0], pair[0][1]
-            br, bc = pair[1][0], pair[1][1]
+            rr, rc, br, bc = q.popleft()
+            # rr, rc, br, bc = q[front]
+            # rr, rc, br, bc = q.pop(0)
+            front += 1
             if raw[br][bc] == 'H':
                 continue
             if raw[rr][rc] == 'H':
@@ -36,13 +39,17 @@ def bfs():
                 if raw[nbr][nbc] == '#':
                     nbr = br
                     nbc = bc
-                if visited[0][nrr][nrc] != 0 and visited[0][nrr][nrc] == visited[1][nbr][nbc]:
+                # 갔던곳
+                if visited[nrr][nrc][nbr][nbc]:
                     continue
+                # 구슬이 만나서 깨짐.
                 if nrr == nbr and nrc == nbc:
                     continue
-                if nrr == rr and nrc == rc and nbr == br and nbc == bc:
-                    continue
-                q.append([[nrr, nrc], [nbr, nbc]])
+                visited[nrr][nrc][nbr][nbc] = 1
+                q.append((nrr, nrc, nbr, nbc))
+        # q.clear()
+        # q = temp[:]
+        # temp.clear()
         time += 1
     return -1
 
@@ -51,19 +58,18 @@ T = int(input())
 for tc in range(1, T + 1):
     R, C = map(int, input().split())
     raw = [list(input().strip()) for _ in range(R)]
-    visited = [[[0] * C for _ in range(R)] for _ in range(2)]
-    pair = [[], []]
+    visited = [[[[0] * C for _ in range(R)] for _ in range(C)]for _ in range(R)]
     q = collections.deque()
+    # q = []
     result = float('inf')
     for i in range(R):
         for j in range(C):
             if raw[i][j] == 'B':
                 raw[i][j] = '.'
-                pair[1] = [i, j]
-                visited[1][i][j] = 1
+                _br, _bc = i, j
             if raw[i][j] == 'R':
                 raw[i][j] = '.'
-                pair[0] = [i, j]
-                visited[0][i][j] = 1
-    q.append(pair)
+                _rr, _rc = i, j
+    visited[_rr][_rc][_br][_bc] = 1
+    q.append((_rr, _rc, _br, _bc))
     print(bfs())
