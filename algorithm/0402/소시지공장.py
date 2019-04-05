@@ -6,8 +6,8 @@ sausage = []
 for i in range(0, len(raw), 2):
     sausage.append((raw[i], raw[i + 1]))
 result = 0
+sausage.sort(reverse=True)
 while sausage:
-    sausage.sort(reverse=True)
     start = sausage.pop()
     temp = collections.deque()
     while sausage:
