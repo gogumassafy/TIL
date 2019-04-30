@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learn JS</title>
+    <style>
+        body { 
+            background: black;
+            color: white;
+            width: 960px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // alert('Welcome to JS');
+        document.write('<h1>Hello, World!</h1>');
+        document.write('<h1>Hello, World!</h1>');
+        document.querySelector('h1').innerText = 'Goodbye, World...'
+        // es5는 var 키워드를 사용했다. 하지만 이제는 안씀.
+        // var name = 'harry';
+
+        // ES6+
+        // var function scope
+        // let block scope {}
+        let word = '외안되';
+        document.write(word);
+
+        // 암묵적 전역
+        word = '왜 안되냐고!!'
+        document.write(word);
+
+        const name = 'harry';
+        document.write(name);
+        // name = 'jun';
+        // document.write(name);
+
+        //  식별자 원칙
+        // 1. 반드시 글자, $, 밑줄로 시작(대문자로 시작 안됨. class만 대문자 가능)
+        // 2. 글자, 숫자, $, 밑줄만 사용 가능
+        // 3. 유니코드(파이, 오메가 등) 사용가능
+        // 4. 예약어 불가능 (case, function, new, return, break,default 등)
+        // 5. camel case(userName) / snake case(user_name)
+        
+        // 문자열 연결
+        const firstName = 'happy';
+        const lastName = 'hacking';
+        const fullName = firstName + lastName;
+        document.write('<h1>' + fullName + '!!' + '</h1>');
+        // template literal
+        document.write(`<h1>${fullName}!!</h1>`);
+        console.log(`Console ${fullName}`);
+        
+        // user input
+        // const userName = prompt('Hello! Who r u??');
+        // let message = `<h1>Hello ${userName}</h1>`;
+        // document.write(message)
+
+        // 조건 분기
+        // const yourName = prompt('Who r u ??')
+        // let message = ''
+
+        // if (yourName === 'harry') {
+        //     message = 'Hello! Admin!'
+        // } else if (yourName === 'neo'){
+        //     meggsage = 'Hello! Neo!!'
+        // } else {
+        //     message = `<h1>hello ${yourName} </h1>`
+        // }
+        // document.write(message)
+
+
+        // 삼항연산자
+        const number = 10
+        number === 10 ? document.write('넘버는 10!') : document.write('넘버는 10이 아니야!')
+
+
+        // arrow function
+        // function과 중괄호를 줄이려고 고안된 단축 문법
+        // 1. function은 생략해도 된다.
+        // 2. 함수의 매개변수가 단 하나뿐이라면 ()도 생략
+        // 3. 함수 바디에 표현식이 하나라면 {}와 return도 생략 가능
+        // const mul = function (num1, num2) {
+        //     return num1 * num2
+        // }
+
+        // const mul = (num1, num2) => {
+        //     return num1 * num2
+        // }
+
+        // const mul = (num1, num2) => num1 * num2
+
+
+        // 익명함수/1회용 함수
+        function (num) {
+            return num ** 3
+        }
+
+        num => num ** 3 // 익명 함수
+        (num => num ** 3)(3) // 익명 함수 즉시 실행
+        const cube = num => num ** 3 // 기명 함수로 만들기
+
+        
+    </script>
+</body>
+</html>

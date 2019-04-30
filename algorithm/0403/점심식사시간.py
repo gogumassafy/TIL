@@ -1,15 +1,6 @@
 import queue, collections
 
 
-# def solve(s0, s1):
-#     time = 0
-#     while len(s0ing) < 3 and s0:
-#         s0ing.append(s0.get())
-#     while len(s1ing) < 3 and s1:
-#         s1ing.append(s1.get())
-#     for
-
-
 def solve(s0, s1):
     time = 0
     s0ing = 3
