@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>댕댕이</h1>
+    <button id="myButton">댕댕이</button>
+    <div class="animals">
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const getDogImage = function () {
+            axios.get('https://dog.ceo/api/breeds/image/random')
+                // 응답은 내용(response)의 response.data.message를 반환하고
+                .then(response => response.data.message)
+                // 반환된 내용을 url로 담아서
+                .then(url => {
+                // image tag를 만들고
+                const imgTag = document.createElement('img')
+                    // url을 이미지 src로 달고
+                    imgTag.src = url
+                    // 원하는 위치(animals div)에 붙이자.
+                    document.querySelector('.animals').append(imgTag)
+                    console.log('붙였다!!')
+                })
+        }
+        document.getElementById('myButton').addEventListener('click', getDogImage)
+    </script>
+    <h1>캣댕이</h1>
+    <button id="catcat">캣댕이</button>
+    <div class='catc'>
+    </div>
+    <script>
+        const getCatImage = function () {
+            axios.get('https://api.thecatapi.com/v1/images/search')
+            .then(response => response.data[0]['url'])
+            .then(url => {
+                const imgTag = document.createElement('img')
+                imgTag.src = url
+                document.querySelector('.catc').append(imgTag)
+            })
+        }
+        document.getElementById('catcat').addEventListener('click', getCatImage)
+    </script>
+</body>
+</html>
