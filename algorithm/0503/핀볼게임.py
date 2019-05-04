@@ -5,7 +5,7 @@ sys.stdin = open('핀볼게임.txt')
 dr = (-1, 0, 1, 0)
 dc = (0, -1, 0, 1)
 # 벽면
-block = ((0, 0, 0, 0), (2, -1, 1, -2), (3, 1, -2, -2), (1, 2, -2, -2), (2, 2, -1, -2), (2, 2, -2, -2))
+block = ((0, 0, 0, 0), (2, -1, 1, -2), (3, 1, -2, -2), (1, 2, -2, -1), (2, 2, -1, -3), (2, 2, -2, -2))
 
 
 def dfs(r, c, d):
@@ -30,7 +30,7 @@ def dfs(r, c, d):
             cnt += 1
         else:
             for wr, wc in wormhole[raw[nr][nc]]:
-                if nr != wr and nc != wc:
+                if nr != wr or nc != wc:
                     nr = wr
                     nc = wc
                     break
@@ -41,7 +41,7 @@ for tc in range(1, T + 1):
     N = int(input())
     raw = [list(map(int, input().split())) for _ in range(N)]
     result = 0
-    wormhole = {6:[], 7:[], 8:[], 9:[], 10:[]}
+    wormhole = {6: [], 7: [], 8: [], 9: [], 10: []}
     for i in range(N):
         for j in range(N):
             if raw[i][j] > 5:

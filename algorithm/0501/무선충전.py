@@ -21,6 +21,20 @@ def draw(idx, r, c, C, p):
             count -= 1
 
 
+def dfs(n, total):
+    global A, each
+    if n == 2:
+        each = max(each, total)
+        return
+    for i in range(A):
+        if selected[i] or data[i][people[n][0]][people[n][1]] == 0:
+            continue
+        selected[i] = 1
+        dfs(n + 1, total + data[i][people[n][0]][people[n][1]])
+        selected[i] = 0
+    dfs(n + 1, total)
+
+
 T = int(input())
 for tc in range(1, T + 1):
     M, A = map(int, input().split())
@@ -34,27 +48,10 @@ for tc in range(1, T + 1):
 
     for i in range(M + 1):
         selected = [0] * A
+        each = 0
+        dfs(0, 0)
+        result += each
         for j in range(2):
-            if j == 0:
-                idx = 0
-                for k in range(1, A):
-                    if data[k][people[j][0]][people[j][1]] > data[idx][people[j][0]][people[j][1]]:
-                        idx = k
-                num = data[idx][people[j][0]][people[j][1]]
-                if num:
-                    selected[idx] = 1
-                    result += num
-            else:
-                num = 0
-                for k in range(0, A):
-                    if selected[k]:
-                        continue
-                    if data[k][people[j][0]][people[j][1]] > num:
-                        idx = k
-                        num = data[k][people[j][0]][people[j][1]]
-                result += num
-
-            # 방향 전환
             people[j][0] += dr[direction[j][i]]
             people[j][1] += dc[direction[j][i]]
     print('#{} {}'.format(tc, result))

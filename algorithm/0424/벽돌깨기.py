@@ -7,21 +7,22 @@ dc = [0, 0, -1, 1]
 
 def DFS(depth, count):
     global result, W, H
+    if result == 0:
+        return
     if depth == 0 or count == 0:
         result = min(result, count)
         return
-    cpy(depth)
     for i in range(W):
         for j in range(H):
             if data[depth][j][i]:
+                cpy(depth)
                 # 1. 벽돌을 깨고
                 stack = [(data[depth][j][i], j, i)]
                 data[depth - 1][j][i] = 0
-                count -= boom(depth, stack)
+                boom_count = boom(depth, stack)
                 # 2. 다음 뎊스로 보낸다.
-                DFS(depth - 1, count)
+                DFS(depth - 1, count - boom_count)
                 break
-        cpy(depth)
 
 
 def cpy(depth):

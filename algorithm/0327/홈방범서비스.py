@@ -19,11 +19,11 @@ def bfs(row, col):
         cost = cost_list[depth]
         if profit - cost >= 0:
             result = max(result, count)
-        if count == max_count or depth == 23:
+        if count == max_count or depth == 21:
             return
         if cost_list[depth] > max_profit or result == max_count:
             return
-        for i in range(num, 0, -1):
+        for _ in range(num, 0, -1):
             r, c = q.get()
             for i in range(4):
                 nr = r + dr[i]
@@ -52,7 +52,7 @@ for tc in range(1, T + 1):
             if raw[i][j]:
                 max_count += 1
     max_profit = max_count * M
-    for K in range(1, 24):
+    for K in range(1, 22):
         cost_list.append(cost_list[-1] + 4*(K-1))
     for R in range(N):
         if result == max_count:
