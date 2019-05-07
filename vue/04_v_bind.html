@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind</title>
+    <style>
+        img {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Hello, {{ name }}</h1>
+        <h2>{{ Date() }}</h2>
+        <h3><input type="checkbox" v-model='emotion'>누르면 행복해집니다.</h3>
+        <!-- <img v-bind:src="happy"> -->
+        <!-- 얘도 사용 가능 -->
+        <img :src="emotion ? happy : sad">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue ({
+            el: '#app',
+            data: {
+                name: 'Vue',
+                emotion: true,
+                happy: 'happy.jpg',
+                sad: 'sad.jpg'
+            }
+        })
+    </script>
+</body>
+</html>

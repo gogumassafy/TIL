@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }} - {{ count }}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            // vue 인스턴스와 DOM을 연결(MOUNT) 하도록 하는 옵션
+            el: '#app',
+            // vue 인스턴스의 속성이라고 부름
+            // - 데이터 객체는 반드시 기본 객체여야한다 {}
+            // - 내부의 아이템들은 value롤 모든 타입의 객체를 가질 수 있다.
+            // - 여기서 정의된 속성은 인터폴레이션 ({{}})을 통해 view에서 렌더링 가능하다.
+            // - script내에서는 app.message로 접근이 가능하며, data 객체 자체에 접근하기 위해서는 app.$data
+            // - _나 $로 시작하는 이름으로 속성을 정의할 수는 있지만, 사용할때 내부 기본 값들과 충돌할 수 있으므로
+            // 반드시 app.$data._sample 이런식으로 접근해야한다.
+            data: {
+                message: 'Hello, ssafy!',
+                count: 0.,
+            },
+            methods: {
+                plus: function () {
+                    // data의 카운트 값을 1씩 증가
+                    this.count ++
+                }
+            }
+        })
+    </script>
+</body>
+</html>

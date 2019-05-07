@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+    <div id="app">
+        <select v-model='status'>
+            <option value="all" selected>all</option>
+            <option value="active">active</option>
+            <option value="completed">completed</option>
+        </select>
+        <!-- <li v-for="todo in todos" v-if="!todo.completed" v-on:click=check(todo)> -->
+        <!-- <li v-for="todo in todosByStatus()" v-bind:class="{completed: todo.completed}" v-bind:key="todo.id"> -->
+        <li v-for="todo in todosByStatus" v-bind:class="{completed: todo.completed}" v-bind:key="todo.id">
+            <input type="checkbox" v-model="todo.completed">
+            <span>{{ todo.content }}</span>
+            <span>{{ reversedNewTodo }}</span>
+        </li>
+        <li v-else v-on:click='check(todo)'>[완료!]</li>
+        <input type="text" v-model='newTodo' v-on:keyup.enter='addTodo'>
+        <button @click='addTodo'>+</button>
+        <footer>
+            <button @click='clearCompleted'>Clear</button>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const STORAGE_KEY = 'vue-todos'
+        const todoStorage = {
+            fetch: function () {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+            },
+            save: function (todos) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+            }
+        }
+        const app = new Vue({
+            el: '#app',
+            data: {
+                todos: todoStorage.fetch(),
+                newTodo: '',
+                activeColor: 'red',
+                fontSize: 30,
+                status: 'all',
+
+            },
+            methods: {
+                check: function (todo) {
+                    todo.completed = !todo.completed
+                },
+                addTodo: function () {
+                    this.todos.push(
+                        {
+                            id: Date.now(),
+                            content: this.newTodo,
+                            completed: false,
+                        }
+                    )
+                    this.newTodo = ""
+                },
+                clearCompleted: function () {
+                    const notCompletedTodos = this.todos.filter(todo => !todo.completed)
+                    this.todos = notCompletedTodos
+                },
+                // todosByStatus: function () {
+                //     if (this.status === 'active') {
+                //         return this.todos.filter(todo => !todo.completed)
+                //     }
+                //     if (this.status === 'completed') {
+                //         return this.todos.filter(todo => todo.completed)
+                //     }
+                //     return this.todos
+                // }
+            },
+            computed: {
+                reversedNewTodo: function () {
+                    return this.newTodo.split('').reverse().join('')
+                },
+                todosByStatus: function () {
+                    if (this.status === 'active') {
+                        return this.todos.filter(todo => !todo.completed)
+                    }
+                    if (this.status === 'completed') {
+                        return this.todos.filter(todo => todo.completed)
+                    }
+                    return this.todos
+                },
+            },
+            watch: {
+                    todos: {
+                        handler: function(todos) {
+                            todoStorage.save(todos)
+                        }, 
+                        deep: true,
+                    }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<button id="function">function</button>
+<button id="arrow">arrow function</button>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+const functionButton = document.querySelector('#function')
+const arrowButton = document.querySelector('#arrow')
+functionButton.addEventListener('click', function(event) {
+console.log('=====function=====')
+console.log(this)
+})
+arrowButton.addEventListener('click', event => {
+console.log('=====arrow fuction=====')
+console.log(this)
+})
+</script>
+</body>
+</html>
