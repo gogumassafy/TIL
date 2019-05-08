@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+    <script>
+        const config = {
+            apiKey: "AIzaSyD5nMUkBHLdJ4ijPeLD43hC8Lj89Uv96QM",
+            projectId: "djpy2-todo-5a1c8",
+            databaseURL: "https://djpy2-todo-5a1c8.firebaseio.com/",
+        }
+        firebase.initializeApp(config)
+    </script>
     <style>
     .completed {
         text-decoration: line-through;
@@ -21,7 +32,7 @@
             <option value="completed">completed</option>
         </select>
         <li v-for="todo in todosByStatus" v-bind:class="{completed: todo.completed}" v-bind:key="todo.id">
-            <input type="checkbox" v-model="todo.completed">
+            <input type="checkbox" v-model="todo.completed" @change="updateTodo(todo)">
             <span>{{ todo.content }}</span>
         </li>
         <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
@@ -32,43 +43,49 @@
         <span>{{ reversedNewTodo }}</span>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        const STORAGE_KEY = 'vue-todos'
-        const todoStorage = {
-            fetch: function () {
-                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-            },
-            save: function (todos) {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
-            }
-        }
+        const database = firebase.database()
+
 
         const app = new Vue({
             el: '#app',
             data: {
-                todos: todoStorage.fetch(),
                 newTodo: '',
                 activeColor: 'red',
                 fontSize: 30,
                 status: 'all',
+            },
+            firebase: {
+                todos: database.ref('todos')
             },
             methods: {
                 check: function (todo) {
                     todo.completed = !todo.completed
                 },
                 addTodo: function () {
-                    this.todos.push({
-                        id: Date.now(),
-                        content: this.newTodo,
-                        completed: false,
-                    })
+                    if (this.newTodo) {
+                        this.$firebaseRefs.todos.push({
+                            id: Date.now(),
+                            content: this.newTodo,
+                            completed: false,
+                        })
+                    }
                     this.newTodo = ''
                 },
                 clearCompleted: function () {
+                    this.todos.slice().forEach(todo => {
+                        if (todo.completed) {
+                            this.$firebaseRefs.todos.child(todo['.key']).remove()
+                        }
+                    })
                     // filter 로 false 애들만 필터해서 todos 에 다시 할당.
-                    const notCompletedTodos = this.todos.filter(todo => !todo.completed)
-                    this.todos = notCompletedTodos
+                    // const notCompletedTodos = this.todos.filter(todo => !todo.completed)
+                    // this.todos = notCompletedTodos
+                },
+                updateTodo: function (todo) {
+                    const newTodo = { ...todo  }
+                    delete newTodo['.key']
+                    this.$firebaseRefs.todos.child(todo['.key']).set(newTodo)
                 },
             },
             computed: {
