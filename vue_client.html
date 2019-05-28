@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="music in musics">
+                <div>
+                    {{ music.artist_name }} - {{ music.title }}
+                </div>
+                <ul>
+                    <li v-for='comment in music.comment_set'>
+                        {{ comment.content }} <button @click="deleteComment(music, comment)">X</button>
+                    </li>
+                </ul>
+                <div>
+                    <input type="text" v-model="music.newComment" @keyup.enter='addComment(music)'>
+                    <button @click="addComment(music)">입력</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                musics: [],
+            },
+            methods: {
+                getMusics: function () {
+                    axios.get('https://django-intro-gogumassafy.c9users.io/api/v1/musics/')
+                        .then(response => response.data)
+                        .then(musics => {
+                            this.musics = musics.map(music => {
+                                return { ...music, newComment: '' }
+                            })
+                        })
+                        .catch(error => console.log(error))
+                },
+                addComment: function (music) {
+                    axios.post(`https://django-intro-gogumassafy.c9users.io/api/v1/musics/${music.id}/comments/`, {content: music.newComment})
+                        .then(response => response.data)
+                        .then(addedComment => {
+                            music.comment_set.push(addedComment)
+                            music.newComment = ''
+                        })
+                        .catch(error => console.log(error))
+                },
+                deleteComment: function (music, comment) {
+                    axios.delete(`https://django-intro-gogumassafy.c9users.io/api/v1/musics/${music.id}/comments/${comment.id}/`)
+                        .then(response => {
+                            music.comment_set = music.comment_set.filter(c => c.id !== comment.id)
+                        })
+                        .catch(error => console.log(error))
+                }
+            },
+            mounted: function() {
+                this.getMusics()
+            }
+        })
+    </script>
+</body>
+</html>
