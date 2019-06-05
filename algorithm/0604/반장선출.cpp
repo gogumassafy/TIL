@@ -17,7 +17,7 @@ int main() {
                     break;
                 }
                 idx = (int) name[i][j] - (int) 'A';
-                if (alphabet[idx] == 0) {
+                if (idx >= 0 && alphabet[idx] == 0) {
                     total[i]++;
                     alphabet[idx] = 1;
                 }
