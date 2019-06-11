@@ -1,6 +1,6 @@
 def dfs():
     global N, result
-    total =[0, 0]
+    total = [0, 0]
     for i in range(N):
         for j in range(N):
             if team[i] == team[j]:
@@ -11,20 +11,17 @@ def dfs():
 def perm(depth, n):
     global N
     half = N // 2
+    if result == 0:
+        return
     if depth == N:
-        if n == half:
-            print(team)
+        return
+    if n == half:
         dfs()
         return
     team[depth] = 1
     perm(depth + 1, n + 1)
     team[depth] = 0
     perm(depth + 1, n)
-
-    # for i in range(n, N):
-    #     team[i] = 1
-    #     perm(depth + 1, i + 1)
-    #     team[i] = 0
 
 
 N = int(input())
