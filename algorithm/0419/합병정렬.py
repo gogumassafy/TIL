@@ -18,13 +18,20 @@ def merge(s, m, e):
 
 
 def merge_sort(s, e):
+    global count
     if s < e:
         m = (s + e) // 2
         merge_sort(s, m)
         merge_sort(m + 1, e)
+        if a[s] > a[e]:
+            count += 1
         merge(s, m, e)
 
 
-a = [1, 3, 49, 4, 69, 2, 1, 100, 59, 43]
-merge_sort(0, len(a) - 1)
-print(a)
+T = int(input())
+for tc in range(1, T + 1):
+    N = int(input())
+    count = 0
+    a = list(map(int, input().split()))
+    merge_sort(0, N - 1)
+    print("#{} {} {}".format(tc, a[N // 2], count))
