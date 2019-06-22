@@ -16,7 +16,8 @@ def dragonCurve(r, c, n, depth):
 
 
 N = int(input())
-raw = [[0] * 100 for _ in range(100)]
+raw = [[0] * 101 for _ in range(101)]
+result = 0
 for i in range(N):
     c, r, d, g = map(int, input().split())
     stack = []
@@ -26,4 +27,9 @@ for i in range(N):
     raw[r][c] = 1
     stack.append((d + 1) % 4)
     dragonCurve(r, c, g, 0)
-print('done')
+
+for i in range(100):
+    for j in range(100):
+        if raw[i][j] and raw[i][j + 1] and raw[i + 1][j] and raw[i + 1][j + 1]:
+            result += 1
+print(result)

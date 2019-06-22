@@ -1,8 +1,8 @@
 dr = (-1, 0, 1, 0)
 dc = (0, 1, -1, 0)
-
 # 상우하좌
 # 하우상좌
+
 
 def clear(t):
     global R, C
@@ -12,20 +12,24 @@ def clear(t):
 
 
 def airclean(t, aircleaner):
+    global R, C
     d = 0
-    r, c = aircleaner[0]
+    sr, sc = aircleaner[0]
+    r, c = sr, sc
     total = 0
     while 1:
         nr = r + dr[d]
         nc = c + dc[d]
+        if not (R > nr >= 0 and C > nc >= 0):
+            d += 1
+            continue
+        if nr == sr and nc == sc:
+            break
         if raw[t][r][c] == -1:
             total += raw[t][nr][nc]
         else:
             raw[t][r][c] = raw[t][nr][nc]
-
-        if raw[t][nr][nc]:
-
-
+        r, c = nr, nc
 
 
 def bfs(q, t):
