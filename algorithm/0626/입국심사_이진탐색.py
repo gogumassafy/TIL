@@ -6,18 +6,20 @@ def calc(time):
     return temp >= M
 
 
-N, M = map(int, input().split())
-desk = []
-for i in range(N):
-    time = int(input())
-    desk.append(time)
-desk.sort()
-minTime = 0
-maxTime = desk[-1] * M
-while minTime < maxTime:
-    midTime = (minTime + maxTime) // 2
-    if calc(midTime):
-        maxTime = midTime
-    else:
-        minTime = midTime + 1
-print(minTime)
+T = int(input())
+for tc in range(1, T + 1):
+    N, M = map(int, input().split())
+    desk = []
+    for i in range(N):
+        time = int(input())
+        desk.append(time)
+    desk.sort()
+    minTime = 0
+    maxTime = desk[-1] * M
+    while minTime < maxTime:
+        midTime = (minTime + maxTime) // 2
+        if calc(midTime):
+            maxTime = midTime
+        else:
+            minTime = midTime + 1
+    print("#{} {}".format(tc, minTime))
