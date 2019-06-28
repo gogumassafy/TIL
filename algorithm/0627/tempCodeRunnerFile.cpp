@@ -1,4 +1,3 @@
-if (!any_of(arr, arr + P, q) || !any_of(arr, arr + P, r)) {
-                    flag = 0;
-                    break;
+if (arr[r][c]) {
+                    run(r, c, arr);
                 }
