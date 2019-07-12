@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{22F9122C-D4A1-47AA-90BA-C0D18A91F55B}</ProjectGuid>
-    <RootNamespace>보석상홍준</RootNamespace>
+    <ProjectGuid>{D6FFF5BD-1A03-4B0B-AEDB-F12DDC86EEAE}</ProjectGuid>
+    <RootNamespace>운동</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -113,7 +113,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="보석상홍준.cpp" />
+    <ClCompile Include="운동.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
