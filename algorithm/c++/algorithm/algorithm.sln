@@ -9,8 +9,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "나무깎는홍준", "나�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "퀴즈", "퀴즈\퀴즈.vcxproj", "{7FCDBE98-ECA6-4526-B4D9-D0A97AEED673}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "보석상홍준", "보석상홍준\보석상홍준.vcxproj", "{22F9122C-D4A1-47AA-90BA-C0D18A91F55B}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "운동", "운동\운동.vcxproj", "{D6FFF5BD-1A03-4B0B-AEDB-F12DDC86EEAE}"
 EndProject
 Global
@@ -45,14 +43,6 @@ Global
 		{7FCDBE98-ECA6-4526-B4D9-D0A97AEED673}.Release|x64.Build.0 = Release|x64
 		{7FCDBE98-ECA6-4526-B4D9-D0A97AEED673}.Release|x86.ActiveCfg = Release|Win32
 		{7FCDBE98-ECA6-4526-B4D9-D0A97AEED673}.Release|x86.Build.0 = Release|Win32
-		{22F9122C-D4A1-47AA-90BA-C0D18A91F55B}.Debug|x64.ActiveCfg = Debug|x64
-		{22F9122C-D4A1-47AA-90BA-C0D18A91F55B}.Debug|x64.Build.0 = Debug|x64
-		{22F9122C-D4A1-47AA-90BA-C0D18A91F55B}.Debug|x86.ActiveCfg = Debug|Win32
-		{22F9122C-D4A1-47AA-90BA-C0D18A91F55B}.Debug|x86.Build.0 = Debug|Win32
-		{22F9122C-D4A1-47AA-90BA-C0D18A91F55B}.Release|x64.ActiveCfg = Release|x64
-		{22F9122C-D4A1-47AA-90BA-C0D18A91F55B}.Release|x64.Build.0 = Release|x64
-		{22F9122C-D4A1-47AA-90BA-C0D18A91F55B}.Release|x86.ActiveCfg = Release|Win32
-		{22F9122C-D4A1-47AA-90BA-C0D18A91F55B}.Release|x86.Build.0 = Release|Win32
 		{D6FFF5BD-1A03-4B0B-AEDB-F12DDC86EEAE}.Debug|x64.ActiveCfg = Debug|x64
 		{D6FFF5BD-1A03-4B0B-AEDB-F12DDC86EEAE}.Debug|x64.Build.0 = Debug|x64
 		{D6FFF5BD-1A03-4B0B-AEDB-F12DDC86EEAE}.Debug|x86.ActiveCfg = Debug|Win32
