@@ -7,18 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app">
-        <button v-on:click="logText">click me</button>
-        <input type="text" v-on:keyup.enter="logText">
-        <input type="text" v-on:keyup.enter="logText">
+    <div id="app"> 
+        {{ num }}
+        <button v-on:click="addNum">increase</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
     <script>
         new Vue({
             el: '#app',
+            data: {
+                num: 10
+            },
+            watch: {
+                num: function () {
+                    this.logText();
+                }
+            },
             methods: {
+                addNum: function () {
+                    this.num++;
+                },
                 logText: function () {
-                    console.log('clicked');
+                    console.log('changed');
                 }
             }
         })

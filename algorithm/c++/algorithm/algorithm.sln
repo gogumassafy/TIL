@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "폭탄감식반", "폭탄�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "영양사수정", "영양사수정\영양사수정.vcxproj", "{FD0D2B21-538C-4FD8-8519-8C7E8BAA6198}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "내전경기", "내전경기\내전경기.vcxproj", "{A76F82CD-20D9-4373-AEB5-6A970204F02F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -101,6 +103,14 @@ Global
 		{FD0D2B21-538C-4FD8-8519-8C7E8BAA6198}.Release|x64.Build.0 = Release|x64
 		{FD0D2B21-538C-4FD8-8519-8C7E8BAA6198}.Release|x86.ActiveCfg = Release|Win32
 		{FD0D2B21-538C-4FD8-8519-8C7E8BAA6198}.Release|x86.Build.0 = Release|Win32
+		{A76F82CD-20D9-4373-AEB5-6A970204F02F}.Debug|x64.ActiveCfg = Debug|x64
+		{A76F82CD-20D9-4373-AEB5-6A970204F02F}.Debug|x64.Build.0 = Debug|x64
+		{A76F82CD-20D9-4373-AEB5-6A970204F02F}.Debug|x86.ActiveCfg = Debug|Win32
+		{A76F82CD-20D9-4373-AEB5-6A970204F02F}.Debug|x86.Build.0 = Debug|Win32
+		{A76F82CD-20D9-4373-AEB5-6A970204F02F}.Release|x64.ActiveCfg = Release|x64
+		{A76F82CD-20D9-4373-AEB5-6A970204F02F}.Release|x64.Build.0 = Release|x64
+		{A76F82CD-20D9-4373-AEB5-6A970204F02F}.Release|x86.ActiveCfg = Release|Win32
+		{A76F82CD-20D9-4373-AEB5-6A970204F02F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
