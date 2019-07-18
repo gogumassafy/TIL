@@ -1,13 +1,13 @@
 #include <iostream>
-#include <utility>
+#include <algorithm>
 #include <vector>
 using namespace std;
 
 int T, K, flag;
 char leftMan[51], rightMan[51];
-vector <string> aTeam;
-vector <string> bTeam;
+vector <string> team;
 vector <pair<string, string>> pairList;
+vector <string>::iterator it;
 
 
 void dfs(int depth);
@@ -20,9 +20,12 @@ int main() {
 		scanf("%d", &K);
 		for (int i = 0; i < K; ++i) {
 			scanf("%s %s", leftMan, rightMan);
-			pairList.push_back(make_pair(leftMan, rightMan));
-			// aTeam.push_back(leftMan);
-			// bTeam.push_back(rightMan);
+			it = find(team.begin(), team.end(), leftMan);
+			if (it) {
+
+			}
+			// pairList.push_back(make_pair(leftMan, rightMan));
+
 
 		}
 		if (flag) {
@@ -31,8 +34,8 @@ int main() {
 		else {
 			printf("#%d No\n", tc);
 		}
-		aTeam.clear();
-		bTeam.clear();
+		// aTeam.clear();
+		// bTeam.clear();
 	}
 	return 0;
 }

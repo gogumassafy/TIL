@@ -9,50 +9,66 @@ int main() {
 	scanf("%d", &T);
 	for (int tc = 1; tc <= T; ++tc) {
 		scanf("%s", inputString);
-		lengthOfString = strlen(inputString);
+		oneOne = 0;
+		oneTwo = 0;
+		twoOne = 0;
+		twoTwo = 0;
 		flag = 1;
-		for (int i = 1; i < lengthOfString; ++i) {
-			if (!oneOne && !twoOne && inputString[i - 1] == 'F') {
-				if (inputString[i] == 'F') {
-					oneOne = 1;
-				}
-				else if (inputString[i] == 'C') {
-					twoOne = 1;
-				}
-			}
-			if (oneOne && !oneTwo) {
-				if (inputString[i] == 'F') {
+		lengthOfString = strlen(inputString);
+		for (int i = 0; i < lengthOfString; ++i) {
+			if (oneTwo) {
+				if (inputString[i] == 'M') {
 					continue;
 				}
-				else if (inputString[i] == 'M') {
-					oneTwo = 2;
+				if (oneTwo == 2) {
+					--oneTwo;
+					continue;
 				}
-				else {
+				oneOne = 0;
+				oneTwo = 0;
+			}
+			else if (twoTwo) {
+				twoOne = 0;
+				twoTwo = 0;
+				continue;
+			}
+
+			if (oneOne) {
+				if (inputString[i] == 'C') {
+					oneOne = 0;
 					flag = 0;
 					break;
 				}
+				else if (inputString[i] == 'M' && inputString[i + 1] == 'C' && inputString[i + 2] == 'M') {
+					oneTwo = 2;
+				}
 			}
 			else if (twoOne) {
-
-			}
-			if (oneTwo) {
-				if (oneTwo == 2) {
-					if (inputString[i] == 'C') {
-						oneTwo--;
-						continue;
-					}
-					else {
-						flag = 0;
-						break;
-					}
+				if (inputString[i] == 'F') {
+					twoOne = 0;
+					flag = 0;
+					break;
 				}
-				else if (oneTwo == 1) {
-					if (inputString[i] == 'M') {
-						continue;
-					}
-					else
+				else if (inputString[i] == 'M' && inputString[i + 1] == 'F') {
+					twoTwo = 1;
 				}
 			}
+			else if (inputString[i] == 'F' && inputString[i + 1] == 'F') {
+				oneOne = 1;
+			}
+			else if (inputString[i] == 'F' && inputString[i + 1] == 'C') {
+				twoOne = 1;
+			}
+			else {
+				flag = 0;
+				break;
+			}
+		}
+		if (flag && (!oneOne || oneTwo) && !twoOne) {
+			printf("#%d DETECTED!\n", tc);
+		}
+		else {
+			printf("#%d NOTHING!\n", tc);
 		}
 	}
 	return 0;
