@@ -1,48 +1,39 @@
 #include <iostream>
-#include <algorithm>
-#include <vector>
+#include <string.h>
 using namespace std;
 
-int T, K, flag;
-char leftMan[51], rightMan[51];
-vector <string> team;
-vector <pair<string, string>> pairList;
-vector <string>::iterator it;
-
-
-void dfs(int depth);
-
+int T, K, countName, leftFlag, rightFlag, routeMap[200][200];
+char leftMan[51], rightMan[51], nameList[200][51];
 
 int main() {
 	scanf("%d", &T);
 	for (int tc = 1; tc <= T; ++tc) {
-		flag = 1;
+		countName = 0;
 		scanf("%d", &K);
+		memset(routeMap, 0, sizeof(routeMap));
 		for (int i = 0; i < K; ++i) {
+			leftFlag = 1;
+			rightFlag = 1;
 			scanf("%s %s", leftMan, rightMan);
-			it = find(team.begin(), team.end(), leftMan);
-			if (it) {
-
+			for (int k = 0; k < countName; ++k) {
+				if (strcmp(nameList[k], leftMan)) {
+					leftFlag = 0;
+				}
+				else if (strcmp(nameList[k], rightMan)) {
+					rightFlag = 0;
+				}
+				if (!leftFlag && !rightFlag) {
+					break;
+				}
 			}
-			// pairList.push_back(make_pair(leftMan, rightMan));
+			if (leftFlag) {
 
-
+				strcpy(nameList[countName++], leftMan);
+			}
+			if (rightFlag) {
+				strcpy(nameList[countName++], rightMan);
+			}
 		}
-		if (flag) {
-			printf("#%d Yes\n", tc);
-		}
-		else {
-			printf("#%d No\n", tc);
-		}
-		// aTeam.clear();
-		// bTeam.clear();
 	}
 	return 0;
-}
-
-
-void dfs(int depth) {
-
-
-	return;
 }
