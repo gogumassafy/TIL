@@ -3,10 +3,10 @@
 #include <string.h>
 using namespace std;
 
-int T, N, countNum[5000], arr[5000], result[5000], flag, tempInput, tail;
+int T, N, countNum[60000], arr[5000], flag, tempInput, tail;
 
 
-void dfs(int depth, int num);
+void dfs(int depth);
 
 
 int main() {
@@ -22,43 +22,42 @@ int main() {
 			}
 		}
 		sort(arr, arr + tail);
-		dfs(0, 0);
 		printf("#%d ", tc);
-		for (int i = 0; i < N; ++i) {
-			printf("%d ", result[i]);
-		}
+		dfs(0);
 		printf("\n");
 	}
 	return 0;
 }
 
-void dfs(int depth, int num) {
-	if (flag) {
-		return;
-	}
+void dfs(int depth) {
 	if (depth == N) {
-		flag = 1;
 		return;
 	}
-	int temp;
-	for (int i = num; i < tail; ++i) {
-		temp = arr[i];
-		if (countNum[temp] == 0) {
-			continue;
-		}
-		if (temp + 1 == arr[i + 1] && i + 2 >= tail && countNum[temp + 1]) {
-			continue;
-		}
-		if (depth > 0) {
-			if (temp == result[depth - 1] + 1)
-				temp = arr[i + 1];
-		}
-		countNum[temp]--;
-		result[depth] = temp;
-		dfs(depth + 1, num);
-		if (flag) {
-			return;
-		}
-		countNum[temp]++;
+	if (countNum[arr[depth]] == 0) {
+		dfs(depth + 1);
+		return;
 	}
+	if (arr[depth] + 1 == arr[depth + 1] && countNum[arr[depth + 1]]) {
+		if (depth + 2 >= tail) {
+			for (int i = 0; i < countNum[arr[depth + 1]]; ++i) {
+				printf("%d ", arr[depth + 1]);
+			}
+			countNum[arr[depth + 1]] = 0;
+		}
+		for (int i = 0; i < countNum[arr[depth]]; ++i) {
+			printf("%d ", arr[depth]);
+		}
+		countNum[arr[depth]] = 0;
+		if (depth + 2 < tail) {
+			printf("%d ", arr[depth + 2]);
+			countNum[arr[depth + 2]]--;
+		}
+	}
+	else {
+		for (int i = 0; i < countNum[arr[depth]]; ++i) {
+			printf("%d ", arr[depth]);
+		}
+		countNum[arr[depth]] = 0;
+	}
+	dfs(depth + 1);
 }
