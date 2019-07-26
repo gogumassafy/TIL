@@ -2,7 +2,8 @@
 #include <vector>
 using namespace std;
 
-int T, treeHeight[1000000], result, endHeight, sum, mid, startHeight, N, M;
+int T, result, N, M;
+long long treeHeight[1000001], endHeight, startHeight, mid, sum;
 
 
 int search(int goal);
@@ -12,11 +13,15 @@ int main() {
 	scanf("%d", &T);
 	for (int tc = 1; tc <= T; ++tc) {
 		endHeight = 0;
+		startHeight = 1e9;
 		scanf("%d %d", &N, &M);
 		for (int i = 0; i < N; ++i) {
-			scanf("%d", &treeHeight[i]);
+			scanf("%lld", &treeHeight[i]);
 			if (treeHeight[i] > endHeight) {
 				endHeight = treeHeight[i];
+			}
+			if (treeHeight[i] < startHeight) {
+				startHeight = treeHeight[i];
 			}
 		}
 		result = search(M);
@@ -27,9 +32,7 @@ int main() {
 
 
 int search(int goal) {
-	startHeight = 0;
-
-	while (startHeight < endHeight) {
+	while (startHeight <= endHeight) {
 		sum = 0;
 		mid = (startHeight + endHeight) / 2;
 		for (int i = 0; i < N; ++i) {
@@ -37,14 +40,11 @@ int search(int goal) {
 				sum += treeHeight[i] - mid;
 			}
 		}
-		if (sum == goal) {
-			return mid;
-		}
-		else if (sum > goal) {
+		if (sum >= goal) {
 			startHeight = mid + 1;
 		}
 		else {
-			endHeight = mid;
+			endHeight = mid - 1;
 		}
 	}
 	return endHeight;
