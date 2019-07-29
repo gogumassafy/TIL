@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="수지의수지맞는여행.cpp">
+    <ClCompile Include="염라대왕의이름정렬.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
