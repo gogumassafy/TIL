@@ -2,7 +2,7 @@
 #include <string.h>
 using namespace std;
 
-int T, N, countName, compareResult, indexOrder[20000];
+int T, N, countName, compareResult, indexOrder[20000], flag;
 char tempName[51], nameList[20000][51];
 
 int main() {
@@ -12,17 +12,22 @@ int main() {
 		scanf("%d", &N);
 		for (int i = 0; i < N; ++i) {
 			scanf("%s", tempName);
+			flag = 0;
 			for (int j = 0; j < countName; ++j) {
 				compareResult = strcmp(nameList[i], tempName);
 				if (compareResult == 0) {
 					break;
 				}
 				else if (compareResult < 0) {
-					continue;
+					flag = 1;
 				}
 				else if (compareResult > 0) {
-
+					flag = 1;
+					break;
 				}
+			}
+			if (flag || countName == 0) {
+				strcpy(nameList[countName], tempName);
 			}
 		}
 	}

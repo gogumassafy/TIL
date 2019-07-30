@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "염라대왕의이름정렬
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "혁진이의프로그램검증", "혁진이의프로그램검증\혁진이의프로그램검증.vcxproj", "{EE283415-0E17-4DF0-8B0C-0715610466C1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "우편함", "우편함\우편함.vcxproj", "{E985BDE5-CFBC-406D-9DAB-1DC1FECEB9F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{EE283415-0E17-4DF0-8B0C-0715610466C1}.Release|x64.Build.0 = Release|x64
 		{EE283415-0E17-4DF0-8B0C-0715610466C1}.Release|x86.ActiveCfg = Release|Win32
 		{EE283415-0E17-4DF0-8B0C-0715610466C1}.Release|x86.Build.0 = Release|Win32
+		{E985BDE5-CFBC-406D-9DAB-1DC1FECEB9F2}.Debug|x64.ActiveCfg = Debug|x64
+		{E985BDE5-CFBC-406D-9DAB-1DC1FECEB9F2}.Debug|x64.Build.0 = Debug|x64
+		{E985BDE5-CFBC-406D-9DAB-1DC1FECEB9F2}.Debug|x86.ActiveCfg = Debug|Win32
+		{E985BDE5-CFBC-406D-9DAB-1DC1FECEB9F2}.Debug|x86.Build.0 = Debug|Win32
+		{E985BDE5-CFBC-406D-9DAB-1DC1FECEB9F2}.Release|x64.ActiveCfg = Release|x64
+		{E985BDE5-CFBC-406D-9DAB-1DC1FECEB9F2}.Release|x64.Build.0 = Release|x64
+		{E985BDE5-CFBC-406D-9DAB-1DC1FECEB9F2}.Release|x86.ActiveCfg = Release|Win32
+		{E985BDE5-CFBC-406D-9DAB-1DC1FECEB9F2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
