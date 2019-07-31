@@ -1,35 +1,40 @@
 #include <iostream>
 #include <string.h>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
-int T, N, countName, compareResult, indexOrder[20000], flag;
-char tempName[51], nameList[20000][51];
+int T, N, countName, compareResult, flag, bookIndex;
+char tempName[51];
+vector <string> nameList;
+
+bool cmp(string left, string right);
 
 int main() {
 	scanf("%d", &T);
-	for (int tc = 0; tc < T + 1; ++tc) {
-		countName = 0;
+	for (int tc = 1; tc < T + 1; ++tc) {
 		scanf("%d", &N);
 		for (int i = 0; i < N; ++i) {
 			scanf("%s", tempName);
-			flag = 0;
-			for (int j = 0; j < countName; ++j) {
-				compareResult = strcmp(nameList[i], tempName);
-				if (compareResult == 0) {
-					break;
-				}
-				else if (compareResult < 0) {
-					flag = 1;
-				}
-				else if (compareResult > 0) {
-					flag = 1;
-					break;
-				}
-			}
-			if (flag || countName == 0) {
-				strcpy(nameList[countName], tempName);
-			}
+			nameList.push_back(tempName);
 		}
+		sort(nameList.begin(), nameList.end(), cmp);
+		nameList.erase(unique(nameList.begin(), nameList.end()), nameList.end());
+		printf("#%d\n", tc);
+		for (size_t i = 0; i < nameList.size(); ++i) {
+			printf("%s\n", nameList[i].c_str());
+		}
+		nameList.clear();
 	}
 	return 0;
+}
+
+bool cmp(string left, string right) {
+	if (left.size() < right.size()) {
+		return true;
+	}
+	else if (left.size() == right.size()) {
+		return left < right;
+	}
+	return false;
 }

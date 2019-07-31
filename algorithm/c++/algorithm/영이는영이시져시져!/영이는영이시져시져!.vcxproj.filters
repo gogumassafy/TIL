@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="만화책정렬하기.cpp">
+    <ClCompile Include="영이는영이시져시져!.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
