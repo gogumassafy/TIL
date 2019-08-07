@@ -8,24 +8,16 @@ dc = (0, 0, -1, 1)
 
 def dfs(depth, count):
     global total
-    if depth == N:
-        if count > total:
-            total = count
+    if total == result:
+        return
+    if depth == N or count == result:
+        total = max(total, count)
         return
     for i in range(W):
         for j in range(H):
             if raw_data[depth][j][i]:
                 dfs(depth + 1, count + boom(depth, j, i))
                 break
-
-
-def check(depth, col):
-    global H
-    for row in range(H):
-        if raw_data[depth][row][col]:
-            boom(depth, row, col)
-            dfs(depth + 1)
-            return
 
 
 def boom(depth, sr, sc):
@@ -38,13 +30,15 @@ def boom(depth, sr, sc):
         power = raw_data[depth + 1][r][c]
         if power == 0:
             continue
+        raw_data[depth + 1][r][c] = 0
         boom_count += 1
-        for i in range(1, power):
-            for j in range(4):
-                nr = r + dr[j] * i
-                nc = c + dc[j] * i
+
+        for i in range(4):
+            for j in range(1, power):
+                nr = r + dr[i] * j
+                nc = c + dc[i] * j
                 if not (W > nc >= 0 and H > nr >= 0):
-                    continue
+                    break
                 if raw_data[depth + 1][nr][nc] == 0:
                     continue
                 stack.append((nr, nc))
@@ -55,13 +49,12 @@ def boom(depth, sr, sc):
 def down(depth):
     global W, H
     remain = []
-    for c in range(H):
-        for r in range(W):
+    for c in range(W):
+        for r in range(H):
             if raw_data[depth][r][c]:
                 remain.append(raw_data[depth][r][c])
-        if len(remain) == 0:
-            continue
-        for r in reversed(range(W)):
+        remain = [0] * (H - len(remain)) + remain
+        for r in reversed(range(H)):
             raw_data[depth][r][c] = remain.pop()
 
 
@@ -75,5 +68,4 @@ for tc in range(1, T + 1):
         raw_data[0][i] = list(map(int, input().split()))
         result += sum(1 for j in raw_data[0][i] if j)
     dfs(0, 0)
-
     print("#{} {}".format(tc, result - total))
