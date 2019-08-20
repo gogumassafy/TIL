@@ -4,7 +4,7 @@ written by 7akikim
 
 ## 개요
 
-본 Python 강의자료는 [HPHK](https://hphk.io)의 강의를 위해 작성되었으며, 외부 유출을 금합니다. 
+본 Python 강의자료는 [HPHK](https://hphk.io)의 강의를 위해 작성되었으며, 외부 유출을 금합니다. ..
 
 ## Python 환경설정
 
