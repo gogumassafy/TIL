@@ -9,12 +9,14 @@ def dfs(r, c):
     global result, M
     visited = [[0] * N for _ in range(N)]
     que = [(r, c)]
-    count = raw[r][c]
+    count = 0
     visited[r][c] = 1
-    for depth in range(2, 50):
+    for depth in range(1, 50):
         time = len(que)
         for i in range(time):
             r, c = que.pop(0)
+            if raw[r][c]:
+                count += 1
             for j in range(4):
                 nr = r + dr[j]
                 nc = c + dc[j]
@@ -24,12 +26,8 @@ def dfs(r, c):
                     continue
                 visited[nr][nc] = 1
                 que.append((nr, nc))
-                if raw[nr][nc]:
-                    count += 1
         if M * count - K[depth] >= 0:
             result = max(result, count)
-        else:
-            return
     return
 
 
