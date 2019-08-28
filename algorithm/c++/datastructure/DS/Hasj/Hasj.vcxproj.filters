@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PQ.cpp">
+    <ClCompile Include="Hash.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
