@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="스택장인.cpp">
+    <ClCompile Include="덕환이의카드뽑기.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
