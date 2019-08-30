@@ -2,7 +2,7 @@
 using namespace std;
 
 int T, result, N, K;
-long long arr[]
+long long arr[];
 
 int main() {
 	scanf("%d", &T);
