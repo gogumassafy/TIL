@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FBA2B5AA-67BD-4F56-BA9B-8BD164B94A9B}</ProjectGuid>
-    <RootNamespace>인터벌커버</RootNamespace>
+    <ProjectGuid>{B79ACF4C-72C5-4C39-BDDD-B9277E990B9B}</ProjectGuid>
+    <RootNamespace>정ㅋ벅ㅋ</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -113,7 +113,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="인터벌커브.cpp" />
+    <ClCompile Include="정ㅋ벅ㅋ.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
