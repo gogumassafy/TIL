@@ -1,9 +1,19 @@
 #include <iostream>
 using namespace std;
 
-int T, N, x, y, arr[10][2], home[2], company[2], result;
+int T, N, x, y, arr[10][2], home[2], company[2], result, heap_size, heap[10000];
 
 void dfs();
+
+void push(int data) {
+	int target = heap_size + 1;
+	while (target = !1 && heap[target / 2] < data) {
+		heap[target] = heap[target / 2];
+		target /= 2;
+	}
+	heap[target] = data;
+	++heap_size;
+}
 
 int main() {
 	scanf("%d", &T);
@@ -25,3 +35,4 @@ void dfs() {
 
 	return;
 }
+
