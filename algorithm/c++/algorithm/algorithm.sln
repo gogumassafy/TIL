@@ -65,6 +65,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "평등주의", "평등주�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "단어가등장하는횟수", "단어가등장하는횟수\단어가등장하는횟수.vcxproj", "{109E402F-C5B2-44FE-9FA0-1E952B740A54}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "롤러코스터2", "롤러코스터2\롤러코스터2.vcxproj", "{799103F9-8EDA-4C7B-8929-DF02D4459869}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -321,6 +323,14 @@ Global
 		{109E402F-C5B2-44FE-9FA0-1E952B740A54}.Release|x64.Build.0 = Release|x64
 		{109E402F-C5B2-44FE-9FA0-1E952B740A54}.Release|x86.ActiveCfg = Release|Win32
 		{109E402F-C5B2-44FE-9FA0-1E952B740A54}.Release|x86.Build.0 = Release|Win32
+		{799103F9-8EDA-4C7B-8929-DF02D4459869}.Debug|x64.ActiveCfg = Debug|x64
+		{799103F9-8EDA-4C7B-8929-DF02D4459869}.Debug|x64.Build.0 = Debug|x64
+		{799103F9-8EDA-4C7B-8929-DF02D4459869}.Debug|x86.ActiveCfg = Debug|Win32
+		{799103F9-8EDA-4C7B-8929-DF02D4459869}.Debug|x86.Build.0 = Debug|Win32
+		{799103F9-8EDA-4C7B-8929-DF02D4459869}.Release|x64.ActiveCfg = Release|x64
+		{799103F9-8EDA-4C7B-8929-DF02D4459869}.Release|x64.Build.0 = Release|x64
+		{799103F9-8EDA-4C7B-8929-DF02D4459869}.Release|x86.ActiveCfg = Release|Win32
+		{799103F9-8EDA-4C7B-8929-DF02D4459869}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
