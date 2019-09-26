@@ -1,22 +1,39 @@
 #include <stdio.h>
 using namespace std;
 
+struct LinkedList {
+	int id;
+	LinkedList* next;
+};
+
 struct Record {
 	char* str[5];
 	int hash[5];
 	bool alive;
 };
 
+LinkedList hash_table[5][PRIME];
+
 const int PRIME = 1000007, BASE = 991;
 const int MAX_NUM_RECORDS = 50005;
 Record records[MAX_NUM_RECORDS];
 int num_records = 0;
 
+
+
 void Add(char* name, char* number, char* birthday, char* email, char* memo)
 {
 	int id = num_records++;
-	printf("%s", name);
-	// records[id].str = {name, number, birthday, email, memo};
+	records[id] = { name, number, birthday, email, memo };
+	if (hash_table[0][my_hash(name)] == NULL) {
+
+	}
+	printf("%s", records[id].str[1]);
+	//records[id].str[0] = name;
+	//records[id].str[1] = number;
+	//records[id].str[2] = birthday;
+	//records[id].str[3] = email;
+	//records[id].str[4] = memo;
 
 	// hash_table[0][my_hash(name)] <- id
 	// hash_table[1][my_hash(number)] <- id
@@ -34,6 +51,7 @@ int my_hash(char *str) {
 	}
 	return ret; // 0 .. PRIME-1
 }
+
 
 int main() {
 	Add("A", "111", "0101", "a.com", "aaa");

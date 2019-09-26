@@ -69,7 +69,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "롤러코스터2", "롤러�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "게리멘더링", "게리멘더링\게리멘더링.vcxproj", "{E5269C65-89E6-49D2-BA0B-D64400E3657B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "연락처 database", "연락처 database\연락처 database.vcxproj", "{575D790A-8958-4A7A-B87E-67408709B911}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database", "연락처 database\연락처 database.vcxproj", "{575D790A-8958-4A7A-B87E-67408709B911}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcxproj", "{2DDD74DA-3B2B-4BCF-96C9-A8FAC0273AFA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hello", "hello\hello.vcxproj", "{75F2A337-BA48-4EE8-9395-6289CE5C9B9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -351,6 +355,22 @@ Global
 		{575D790A-8958-4A7A-B87E-67408709B911}.Release|x64.Build.0 = Release|x64
 		{575D790A-8958-4A7A-B87E-67408709B911}.Release|x86.ActiveCfg = Release|Win32
 		{575D790A-8958-4A7A-B87E-67408709B911}.Release|x86.Build.0 = Release|Win32
+		{2DDD74DA-3B2B-4BCF-96C9-A8FAC0273AFA}.Debug|x64.ActiveCfg = Debug|x64
+		{2DDD74DA-3B2B-4BCF-96C9-A8FAC0273AFA}.Debug|x64.Build.0 = Debug|x64
+		{2DDD74DA-3B2B-4BCF-96C9-A8FAC0273AFA}.Debug|x86.ActiveCfg = Debug|Win32
+		{2DDD74DA-3B2B-4BCF-96C9-A8FAC0273AFA}.Debug|x86.Build.0 = Debug|Win32
+		{2DDD74DA-3B2B-4BCF-96C9-A8FAC0273AFA}.Release|x64.ActiveCfg = Release|x64
+		{2DDD74DA-3B2B-4BCF-96C9-A8FAC0273AFA}.Release|x64.Build.0 = Release|x64
+		{2DDD74DA-3B2B-4BCF-96C9-A8FAC0273AFA}.Release|x86.ActiveCfg = Release|Win32
+		{2DDD74DA-3B2B-4BCF-96C9-A8FAC0273AFA}.Release|x86.Build.0 = Release|Win32
+		{75F2A337-BA48-4EE8-9395-6289CE5C9B9F}.Debug|x64.ActiveCfg = Debug|x64
+		{75F2A337-BA48-4EE8-9395-6289CE5C9B9F}.Debug|x64.Build.0 = Debug|x64
+		{75F2A337-BA48-4EE8-9395-6289CE5C9B9F}.Debug|x86.ActiveCfg = Debug|Win32
+		{75F2A337-BA48-4EE8-9395-6289CE5C9B9F}.Debug|x86.Build.0 = Debug|Win32
+		{75F2A337-BA48-4EE8-9395-6289CE5C9B9F}.Release|x64.ActiveCfg = Release|x64
+		{75F2A337-BA48-4EE8-9395-6289CE5C9B9F}.Release|x64.Build.0 = Release|x64
+		{75F2A337-BA48-4EE8-9395-6289CE5C9B9F}.Release|x86.ActiveCfg = Release|Win32
+		{75F2A337-BA48-4EE8-9395-6289CE5C9B9F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
