@@ -21,7 +21,7 @@ void request(int track) {
 	requests[num_requests++] = track;
 }
 
-#define use(x) {alive[x] = 0; head_pos = x; return x; };
+#define use(x) {alive[x] = 0; head_pos = x; return x; }
 
 int fcfs() {
 	//
