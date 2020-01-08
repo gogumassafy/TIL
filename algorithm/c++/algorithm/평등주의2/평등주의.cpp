@@ -12,6 +12,7 @@ int main() {
 	scanf("%d", &T);
 	for (int tc = 1; tc <= T; ++tc) {
 		maxNum = 0;
+		scanf("%d %d", &N, &K);
 		for (int i = 0; i < N; ++i) {
 			scanf("%d", &input[i]);
 			if (input[i] > maxNum) maxNum = input[i];
@@ -51,21 +52,21 @@ int isAvailable(int mid) {
 			leftToRight[i] = leftToRight[i - 1] + mid;
 		}
 
-		if (i == (N - 1) || input[(N - 1) - i] < rightToLeft[(N - 1) - i] + mid) {
+		if (i == 0 || input[(N - 1) - i] < rightToLeft[N - i] + mid) {
 			rightToLeft[(N - 1) - i] = input[(N - 1) - i];
 		}
 		else {
-			rightToLeft[(N - 1) - i] = rightToLeft[(N - 1) - i] + mid;
+			rightToLeft[(N - 1) - i] = rightToLeft[N - i] + mid;
 		}
 		
 	}
 
 	for (int i = 0; i < N; ++i) {
 		if (leftToRight[i] >= rightToLeft[i]) {
-			cutCount += rightToLeft[i] - input[i];
+			cutCount += input[i] - rightToLeft[i];
 		}
 		else {
-			cutCount += leftToRight[i] - input[i];
+			cutCount += input[i] - leftToRight[i];
 		}
 		if (cutCount > K) return 0;
 	}
