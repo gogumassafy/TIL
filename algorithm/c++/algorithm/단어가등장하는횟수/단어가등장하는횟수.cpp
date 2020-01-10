@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-#define d 259;
-#define m 2^64;
+#define d 259
+#define m (1 << 64)
 
 typedef struct {
 
