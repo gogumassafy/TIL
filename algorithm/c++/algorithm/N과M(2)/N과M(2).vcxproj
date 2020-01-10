@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B10ADD46-B1AF-406A-B164-9EB8CC744218}</ProjectGuid>
-    <RootNamespace>단어가등장하는횟수</RootNamespace>
+    <ProjectGuid>{29FA9040-5D23-4F3C-981F-8E8FCD3C27EB}</ProjectGuid>
+    <RootNamespace>N과M2</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -113,7 +113,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="단어가등장하는횟수.cpp" />
+    <ClCompile Include="N과M(2).cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
