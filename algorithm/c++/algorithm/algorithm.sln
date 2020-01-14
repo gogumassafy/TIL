@@ -121,6 +121,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "야구", "야구\야구.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "원판돌리기", "원판돌리기\원판돌리기.vcxproj", "{4AD8C5E2-2209-4A5A-8E39-F32F1BD7BA4E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "inversion Count", "inversionSort\inversionSort.vcxproj", "{A2E6D7B9-10B8-4083-A19B-AB555AD4F8C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -601,6 +603,14 @@ Global
 		{4AD8C5E2-2209-4A5A-8E39-F32F1BD7BA4E}.Release|x64.Build.0 = Release|x64
 		{4AD8C5E2-2209-4A5A-8E39-F32F1BD7BA4E}.Release|x86.ActiveCfg = Release|Win32
 		{4AD8C5E2-2209-4A5A-8E39-F32F1BD7BA4E}.Release|x86.Build.0 = Release|Win32
+		{A2E6D7B9-10B8-4083-A19B-AB555AD4F8C7}.Debug|x64.ActiveCfg = Debug|x64
+		{A2E6D7B9-10B8-4083-A19B-AB555AD4F8C7}.Debug|x64.Build.0 = Debug|x64
+		{A2E6D7B9-10B8-4083-A19B-AB555AD4F8C7}.Debug|x86.ActiveCfg = Debug|Win32
+		{A2E6D7B9-10B8-4083-A19B-AB555AD4F8C7}.Debug|x86.Build.0 = Debug|Win32
+		{A2E6D7B9-10B8-4083-A19B-AB555AD4F8C7}.Release|x64.ActiveCfg = Release|x64
+		{A2E6D7B9-10B8-4083-A19B-AB555AD4F8C7}.Release|x64.Build.0 = Release|x64
+		{A2E6D7B9-10B8-4083-A19B-AB555AD4F8C7}.Release|x86.ActiveCfg = Release|Win32
+		{A2E6D7B9-10B8-4083-A19B-AB555AD4F8C7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
