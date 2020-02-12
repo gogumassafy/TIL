@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AB1963B0-4F3C-4357-9F8F-919E01E0B3F5}</ProjectGuid>
-    <RootNamespace>성곽</RootNamespace>
+    <ProjectGuid>{004DD19A-7C9B-4B65-B3F1-8B612627F5EE}</ProjectGuid>
+    <RootNamespace>일곱난쟁이</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -113,7 +113,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="성곽.cpp" />
+    <ClCompile Include="일곱 난쟁이.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
