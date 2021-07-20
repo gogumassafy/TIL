@@ -1,0 +1,10 @@
+add 10 20         #> true
+contains 12 15    #> true
+contains 10 20    #> true
+contains 0 5      #> false
+contains 25 30    #> false
+clear
+contains 12 15    #> false
+contains 10 20    #> false
+contains 0 5      #> false
+contains 25 30    #> false
