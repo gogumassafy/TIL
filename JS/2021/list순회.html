@@ -1,0 +1,58 @@
+<script>const log = console.log;</script>
+
+<script>
+    const list = [1, 2, 3];
+
+    // 기존
+    for (var i = 0; i < list.lenght; i++) {
+        log(list[i]);
+    }
+</script>
+
+
+<script>
+    const arr = [1, 2, 3];
+    // arr[Symbol.iterator] = null;
+    let iter1 = arr[Symbol.iterator]();
+    log(iter1);
+    for (const a of iter1) log(a);
+
+    
+    const set = new Set([1, 2, 3]);
+    for (const a of set) log(a);
+
+    const map = new Map([['a', 1], ['b', 2], ['c', 3]]);
+    let iter2 = map[Symbol.iterator]();
+    iter2.next();
+    for (const a of iter2) log(a);
+    for (const a of map.keys()) log(a);
+    for (const a of map.values()) log(a);
+    for (const a of map.entries()) log(a);
+
+</script>
+
+<script>
+    const iterable = {
+        [Symbol.iterator]() {
+            let i = 3;
+            return {
+                next() {
+                    return i == 0 ? {done: true} : {value: i--, done: false};
+                },
+                [Symbol.iterator]() { return this; }
+            }
+        }
+    };
+    let iterator = iterable[Symbol.iterator]();
+    // log(iterator.next());
+    // log(iterator.next());
+    // log(iterator.next());
+    // log(iterator.next());
+
+    for (const a of iterable) log(a);
+
+    // const arr2 = [1, 2, 3];
+    // let iter2 = arr2[Symbol.iterator]();
+    // iter2.next();
+    // for (const a of iter2) log(a);
+</script>
